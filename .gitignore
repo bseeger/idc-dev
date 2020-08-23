@@ -1,4 +1,6 @@
 local/*
 !local/.env
 !local/docker-compose.env.yml
+!local/docker-compose.minio.yml
+!local/docker-compose.minio-init.yml
 !local/repos.conf
