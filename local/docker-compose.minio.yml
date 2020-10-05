@@ -17,7 +17,26 @@ services:
       - "9000:9000"
     networks:
       default:
+        aliases:
+          - minio-${COMPOSE_PROJECT_NAME-isle-dc}.${DRUPAL_SITE_HOST-traefik.me}
       gateway: # Do not expose in production.
     volumes:
         - minio-data:/data
     command: server /data
+    labels:
+      traefik.enable: "true"
+      traefik.http.middlewares.idc-minio-redirectscheme.redirectscheme.permanent: "true"
+      traefik.http.middlewares.idc-minio-redirectscheme.redirectscheme.scheme: https
+      traefik.http.middlewares.idc-minio-stripprefix.stripprefix.prefixes: /s3
+      traefik.http.middlewares.idc-minio.chain.middlewares: idc-minio-stripprefix
+      traefik.http.routers.idc-minio_http.entrypoints: http
+      traefik.http.routers.idc-minio_http.middlewares: idc-minio-redirectscheme
+      traefik.http.routers.idc-minio_http.rule: Host(`islandora-idc.traefik.me`,`islandora-idc-traefik.me`)
+        && PathPrefix(`/{path:minio|s3}`)
+      traefik.http.routers.idc-minio_http.service: idc-minio
+      traefik.http.routers.idc-minio_https.entrypoints: https
+      traefik.http.routers.idc-minio_https.middlewares: idc-minio
+      traefik.http.routers.idc-minio_https.rule: Host(`islandora-idc.traefik.me`,`islandora-idc-traefik.me`)
+        && PathPrefix(`/{path:minio|s3}`)
+      traefik.http.routers.idc-minio_https.tls: "true"
+      traefik.http.services.idc-minio.loadbalancer.server.port: '9000'
