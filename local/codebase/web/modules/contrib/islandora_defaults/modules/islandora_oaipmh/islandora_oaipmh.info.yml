@@ -1,0 +1,12 @@
+name: 'Islandora OAI-PMH Endpoint'
+type: module
+description: 'Default configuration for an OAI-PMH Endpoint'
+core: 8.x
+package: Islandora
+dependencies:
+  - islandora_defaults
+  - node
+  - rest_oai_pmh
+  - taxonomy
+  - user
+  - views

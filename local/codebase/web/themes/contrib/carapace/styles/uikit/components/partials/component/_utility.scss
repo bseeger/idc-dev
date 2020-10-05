@@ -1,0 +1,40 @@
+/**
+ * Utility
+ * - useful classes to be used anywhere.
+ ============================================================================ */
+
+.is-vertical-center {
+  position: absolute;
+  top: 50%;
+  filter: blur(0.1px);
+  backface-visibility: hidden;
+}
+
+.is-vertical-top {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+}
+
+.is-vertical-bottom {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
+
+.is-horizontal-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: table;
+}
+
+.is-horizontal-left {
+  left: 0;
+  right: auto;
+}
+
+.is-horizontal-right {
+  left: auto;
+  right: 0;
+}

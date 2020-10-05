@@ -1,0 +1,33 @@
+# This .info.yml files provides the basic information about our module to Drupal
+# More: https://www.drupal.org/node/2000204
+name: 'islandora'
+description: "Islandora Core"
+type: module
+package: Islandora
+core: 8.x
+dependencies:
+  - block
+  - node
+  - path
+  - text
+  - options
+  - link
+  - jsonld
+  - search_api
+  - jwt
+  - rest
+  - filehash
+  - basic_auth
+  - context_ui
+  - action
+  - eva
+  - taxonomy
+  - views_ui
+  - media
+  - prepopulate
+  - features_ui
+  - migrate_tools
+  - migrate_source_csv
+  - content_translation
+  - flysystem
+  - token

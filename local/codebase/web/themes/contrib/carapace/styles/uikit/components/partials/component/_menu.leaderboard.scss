@@ -1,0 +1,30 @@
+/**
+ * Menus in the Leaderboard region.
+ ============================================================================ */
+
+// Region or row specific menu overrides
+.pr-leaderboard {
+
+  .block-menu {
+    @include cfm;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  /* Mixin */
+  .menu {
+    @include list-horizontal($flow-from, $margin: (t: 0, r: $small, b: 0, l: 0), $list-item-selector: '.menu__item');
+  }
+
+  .block__content .menu__link {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  .block__content .menu__link:after {
+    display: none;
+  }
+}
+

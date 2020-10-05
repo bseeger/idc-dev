@@ -1,0 +1,23 @@
+{
+    "name": "islandora/jsonld",
+    "description": "JSON-LD serializer for Drupal 8",
+    "type": "drupal-module",
+    "license": "GPL-2.0+",
+    "homepage": "https://github.com/Islandora/jsonld",
+    "support": {
+        "issues": "https://github.com/Islandora/documentation/issues"
+    },
+    "authors": [
+        {
+            "name": "Islandora Foundation",
+            "email": "community@islandora.ca",
+            "role": "Owner"
+        },
+        {
+            "name": "Diego Pino",
+            "email": "dpino@metro.org",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,74 @@
+/**
+ * Branding styles
+ *  - Drupal core branding block.
+ ============================================================================ */
+
+.block--system-branding-block {
+  @include output-rhythm(margin, $large 0);
+}
+
+
+.site-branding {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+
+  &__text,
+  &__name,
+  &__slogan {
+    display: block;
+  }
+
+  // link around the logo image
+  &__logo-link {
+    display: block;
+    @include output-rhythm(padding-#{$flow-to}, $medium);
+  }
+
+  // logo image
+  &__logo-img {}
+
+  // wrapper around site name and slogan (byline)
+  &__text {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    margin: 0;
+  }
+
+  // site name
+  &__name {
+    @include output-rhythm(font-size, $medium * 1.5);
+
+    @media #{$wide} {
+      @include output-rhythm(font-size, $medium * 2);
+    }
+
+    @include output-rhythm(padding-#{$flow-to}, $medium);
+    font-weight: $font-weight-bold;
+
+    &__word-count--1 {}
+    &__word-count--2 {}
+
+    // The word AT, as in teh default.
+    &__word--at {
+      margin-#{$flow-to}: -0.2em;
+    }
+  }
+
+  // site name link
+  &__name-link {
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+
+  // site slogan
+  &__slogan {
+    //@include output-rhythm(padding, $xxx-small 0);
+    font-style: $font-weight-normal;
+  }
+}
+
+

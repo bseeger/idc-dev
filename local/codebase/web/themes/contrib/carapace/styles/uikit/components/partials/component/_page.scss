@@ -1,0 +1,276 @@
+/**
+ * Page
+ *  - for page.html.twig and region markup.
+ ============================================================================ */
+
+// Regions wrapper.
+.regions {
+  border: $global-padding solid;
+  border-bottom: 0;
+}
+
+
+// Page Rows and Regions.
+
+// Messages
+.pr-messages {
+
+  &__rw {
+    border: 0;
+  }
+
+  &__lmessages-first {}
+
+}
+
+
+// Leaderboard
+.pr-leaderboard {
+  .regions {
+    border-width: $global-padding * 2;
+    //border-top: 0;
+  }
+
+  .block {
+    &:not(.has-title) {
+      margin-top: 0;
+      margin-bottom: 0;
+
+      p {
+        @include output-rhythm(margin, $medium 0 0);
+      }
+    }
+
+    ul,
+    ol {
+      margin: 0;
+    }
+
+    @media #{$mobile-isolate} {
+      float: none;
+      margin: 0 auto;
+      text-align: center;
+      display: table;
+    }
+  }
+
+  &__leaderboard {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    @media #{$mobile-isolate} {
+      display: block;
+    }
+  }
+
+}
+
+
+// Header
+.pr-header {
+  .regions {
+    border-width: $global-padding * 2;
+    //border-top: 0;
+  }
+
+  .block {
+    @include output-rhythm(margin, $medium 0);
+  }
+}
+
+
+// Navbar
+.pr-navbar {
+  .regions {
+    border-width: $global-padding * 2;
+    //border-top: 0;
+  }
+
+  &__rw {
+    padding: 0;
+
+    @media #{$wide} {
+      // Use display table vertical centering when not
+      &:not(.rm-row) .pr-navbar__navbar {
+        display: table;
+        width: 100%;
+
+        .block {
+          display: table-cell;
+          vertical-align: middle;
+        }
+      }
+    }
+  }
+
+  .block {
+    margin: 0;
+
+    ul {
+      margin: 0;
+    }
+  }
+}
+
+// Remove whitespace depending on which regions are active.
+.l-leaderboard {
+  + .l-header .regions,
+  + .l-navbar .regions {
+    border-top: 0;
+  }
+}
+
+.l-header {
+  + .l-navbar .regions {
+    border-top: 0;
+  }
+}
+
+// Headroom pinned.
+#navbar.headroom--not-top {
+  position: fixed;
+  top: 0;
+  z-index: 450; // keep this less than toolbar z-index.
+  width: 100%;
+
+  .regions {
+    border-bottom: 0.625em solid;
+  }
+}
+
+
+
+
+// Highlighted
+.pr-highlighted {
+  &__rw {}
+  &__highlighted {}
+}
+
+
+// Features
+.pr-features {
+
+  + .pr-main,
+  + .pr-content-prefix {
+    .block {
+      margin-top: 0;
+    }
+  }
+
+  &__rw {}
+  &__features-first {}
+  &__features-second {}
+  &__features-third {}
+
+  .block {
+    margin-top: 0;
+    @include output-rhythm(margin-bottom, $large);
+
+    .bp--at-core-simple-wide & {
+      margin-bottom: 0;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
+// Content prefix
+.pr-content-prefix {
+  &__rw {}
+  &__content-prefix {}
+}
+
+
+// Main
+.pr-main {
+  &__rw {}
+  &__content {}
+  &__sidebar-first {}
+  &__sidebar-second {}
+
+  &__sidebar-first,
+  &__sidebar-second {
+    .block__title {
+      margin: 0;
+      border-radius: $border-radius $border-radius 0 0;
+    }
+
+    .block__content {
+      border-radius: 0 0 $border-radius $border-radius;
+    }
+
+    .block__title,
+    .block__content {
+      @include output-rhythm(padding, $small);
+    }
+
+    .block-search .block__content {
+     padding: 0;
+    }
+  }
+}
+
+
+// Content suffix
+.pr-content-suffix {
+  &__rw {}
+  &__content-suffix {}
+}
+
+
+// Sub features
+.pr-subfeatures {
+  &__rw {
+    border: 0;
+  }
+
+  &__subfeatures-first {}
+  &__subfeatures-second {}
+  &__subfeatures-third {}
+  &__subfeatures-fourth {}
+}
+
+
+// Footer cols
+.pr-footercols {
+  &__rw {
+    border: 0;
+  }
+
+  &__footercol-first {}
+  &__footercol-second {}
+  &__footercol-third {}
+  &__footercol-fourth {}
+  &__footercol-fifth {}
+}
+
+
+// Footer
+.pr-footer {
+  &__rw {
+    border: 0;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+}
+
+
+// Both footer and footer cols.
+.pr-footercols + .pr-footer {
+  .block {
+    margin-top: 0;
+  }
+}
+
+
+
+

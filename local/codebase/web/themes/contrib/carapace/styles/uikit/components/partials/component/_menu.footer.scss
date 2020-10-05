@@ -1,0 +1,18 @@
+/**
+ * Menus in the Footer region.
+ ============================================================================ */
+
+// Region or row specific menu overrides
+.pr-footer__footer {
+
+  .block-menu {
+    @include cfm;
+  }
+
+  @include list-horizontal($flow-from, $margin: (t: $x-small, r: $medium, b: $x-small, l: 0), $list-item-selector: '.menu__item');
+
+  .block__content .menu__link:after {
+    display: none;
+  }
+}
+

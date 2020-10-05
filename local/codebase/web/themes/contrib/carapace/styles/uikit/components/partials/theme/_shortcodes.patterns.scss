@@ -1,0 +1,15 @@
+/**
+ * Shortcodes (Patterns)
+ ============================================================================ */
+
+@if $patterns {
+ @each $pattern in $patterns {
+   .#{$pattern} {
+     background-image: url(#{'../images/patterns/#{$pattern}.png'});
+   }
+  }
+}
+
+.block[class*="pattern-"] {
+  @include output-rhythm(padding, $medium);
+}

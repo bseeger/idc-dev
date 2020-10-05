@@ -1,0 +1,159 @@
+/**
+ * Content Types (nodes)
+ *  - in Drupal a content type is a bunch of fields we use to enter and display
+ *    content, such as pages, blog posts, forum posts and so on. Each of those
+ *    is usually a content type you create in the Drupal admin.
+ *  - an instance of a content type (e.g. a single blog post) is called a node,
+ *    the root template is node.html.twig and the base selector is .node {}
+ ============================================================================ */
+.node {
+  border-radius: 0;
+}
+
+.node:before,
+.node:after {
+  content: " ";
+  display: table;
+}
+
+.node:after {
+  clear: both;
+}
+
+.node p:last-of-type {
+  margin-bottom: 0;
+}
+
+.node__status {
+  float: right;
+}
+
+.node__title,
+.node .field-node--node-title {
+  font-size: 1.625rem;
+  line-height: 2.25rem;
+}
+
+.node--view-mode-full__title {
+  margin: 0 0 1rem;
+}
+
+.node--view-mode-teaser [class*="field-type-text"] {
+  font-size: 0.857rem;
+  line-height: 1.5rem;
+  line-height: 1.35rem;
+}
+
+.node__meta {
+  margin: 1rem 0;
+  overflow: hidden;
+}
+
+.node__meta .field-type-image {
+  float: left;
+  margin: 0 0.75rem 0 0;
+}
+
+.node__meta .field-type-image__figure {
+  margin: 0;
+  padding: 0;
+}
+
+.node__meta .field-type-image img {
+  width: auto;
+  height: 3rem;
+}
+
+.node__meta article:empty {
+  display: none;
+}
+
+.node__submitted {
+  font-size: 0.857rem;
+  line-height: 1.5rem;
+}
+
+.node .node__author:after {
+  content: "-";
+  display: inline-block;
+}
+
+.node__meta--has-author-picture .node__author:after {
+  display: none;
+}
+
+.node__meta--has-author-picture .node__author,
+.node__meta--has-author-picture .node__pubdate {
+  margin: 0;
+  display: block;
+}
+
+@media all and (max-width: 60em) {
+  .node .node__author:after {
+    display: none;
+  }
+  .node .node__author,
+  .node .node__pubdate {
+    margin: 0;
+    display: block;
+  }
+}
+
+.node__links {
+  clear: both;
+}
+
+.node__links ul.links.inline a {
+  padding: 0.3125rem 0.5rem;
+  border-radius: 0;
+  font-size: 0.857rem;
+  line-height: 1.5rem;
+  vertical-align: middle;
+}
+
+.node--sticky {
+  padding: 0;
+}
+
+.node .field-type-image__item {
+  display: inline-block;
+}
+
+.node .field-type-image__figcaption {
+  padding: 0.75rem 0 0 0;
+}
+
+.node .field[class*="user-picture"] .field-type-image__item {
+  border: 0 none;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* View Modes to support nodes in views and other lists. */
+.node--view-mode-teaser {
+  border-bottom: 1px solid;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.node--view-mode-hero,
+.node--view-mode-spotlight {
+  position: relative;
+}
+
+.node--view-mode-hero .field-type-image__figure,
+.node--view-mode-spotlight .field-type-image__figure {
+  margin: 0;
+  padding: 0;
+}
+
+.node--view-mode-hero .field-name-node-title,
+.node--view-mode-spotlight .field-name-node-title {
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  margin: 0.625rem;
+  color: #fff;
+  bottom: 0;
+  padding: 0.3rem 0.625rem;
+}
+/*# sourceMappingURL=node.css.map */

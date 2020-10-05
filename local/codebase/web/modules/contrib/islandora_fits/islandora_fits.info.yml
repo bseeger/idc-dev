@@ -1,0 +1,8 @@
+name: 'Islandora Fits'
+type: module
+description: 'Enables Technical Metadata derivative generation'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - islandora
+  - field_permissions
