@@ -1,0 +1,17 @@
+name: 'Permissions by Term'
+description: 'Restricts access to nodes and taxonomy terms via user to term relations.'
+dependencies:
+  - 'drupal:system'
+  - 'drupal:field'
+  - 'drupal:entity_reference'
+  - 'drupal:taxonomy'
+type: module
+# core: '8.x'
+# version: '8.x-1.52'
+package: 'Permissions by Term'
+
+# Information added by Drupal.org packaging script on 2018-08-21
+version: '8.x-1.61'
+core: '8.x'
+project: 'permissions_by_term'
+datestamp: 1534865890
