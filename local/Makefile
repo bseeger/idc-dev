@@ -319,3 +319,15 @@ clean:
 	-docker-compose down -v
 	sudo rm -fr codebase certs
 	git clean -xffd .
+
+# Make a snapshot
+.PHONY: snapshot-image
+.SILENT: snapshot-image
+snapshot-image:
+	docker-compose stop
+	docker run --rm --volumes-from snapshot \
+		-v ${PWD}/snapshot:/dump \
+		alpine:latest \
+		/bin/tar cvf /dump/data.tar /data
+	docker build -f snapshot/snapshot.Dockerfile -t birkland/idc-snapshot:latest ./snapshot
+	docker-compose up -d

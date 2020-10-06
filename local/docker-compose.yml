@@ -54,6 +54,7 @@ services:
   drupal:
     depends_on:
     - mariadb
+    - snapshot
     environment:
       DRUPAL_DEFAULT_ACCOUNT_EMAIL: admin@example.org
       DRUPAL_DEFAULT_ACCOUNT_PASSWORD: password
@@ -168,7 +169,7 @@ services:
       gateway: {}
     volumes:
     - solr-data:/opt/solr/server/solr:rw
-    - /home/birkland/projects/idc-dev/local/codebase:/var/www/drupal:delegated
+    - ./codebase:/var/www/drupal:delegated
     - drupal-sites-data:/var/www/drupal/web/sites/default/files:rw
   fits:
     image: islandora/fits:latest
@@ -262,6 +263,8 @@ services:
         -----END PUBLIC KEY-----'
     image: islandora/hypercube:latest
   mariadb:
+    depends_on:
+    - snapshot
     environment:
       MYSQL_ROOT_PASSWORD: password
     image: islandora/mariadb:latest
@@ -283,6 +286,7 @@ services:
   matomo:
     depends_on:
     - mariadb
+    - snapshot
     environment:
       MATOMO_DB_PASSWORD: password
       MATOMO_DB_ROOT_PASSWORD: password
@@ -318,6 +322,8 @@ services:
     image: islandora/milliner:latest
   minio:
     command: server /data
+    depends_on:
+    - snapshot
     environment:
       MINIO_ACCESS_KEY: moo
       MINIO_SECRET_KEY: moomoomoo
@@ -374,6 +380,8 @@ services:
         -----END PUBLIC KEY-----'
     image: islandora/recast:latest
   solr:
+    depends_on:
+    - snapshot
     image: islandora/solr:latest
     labels:
       traefik.enable: "true"
@@ -419,9 +427,20 @@ services:
     - published: 8080
       target: 8080
     volumes:
-    - /home/birkland/projects/idc-dev/local/certs:/etc/ssl/traefik:rw
-    - /home/birkland/projects/idc-dev/local/tls.yml:/etc/traefik/tls.yml:rw
+    - ./certs:/etc/ssl/traefik:rw
+    - ./tls.yml:/etc/traefik/tls.yml:rw
     - /var/run/docker.sock:/var/run/docker.sock:rw
+  snapshot:
+    container_name: snapshot
+    build: ./snapshot
+    image: birkland/snapshot:latest
+    volumes:
+    - drupal-sites-data:/data/drupal
+    - mariadb-data:/data/mariadb-data
+    - mariadb-files:/data/mariadb-files
+    - matomo-config-data:/data/matomo-config
+    - minio-data:/data/minio
+    - solr-data:/data/solr
 version: '3.7'
 volumes:
   activemq-data: {}
